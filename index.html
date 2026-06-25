@@ -64,5 +64,12 @@ share:{art:"🌍",text:"The kingdom is everywhere. cardforum.io. GitHub. Codeber
 function go(s){const sc=scenes[s];if(!sc)return;document.getElementById("art").textContent=sc.art;document.getElementById("text").textContent=sc.text;const c=document.getElementById("choices");c.innerHTML="";sc.choices.forEach((ch,i)=>{const b=document.createElement("button");b.className="btn";b.textContent=ch;b.onclick=()=>{S.turn++;if(sc.next[i]==="village")S.love+=1;if(sc.next[i]==="chain"||sc.next[i]==="witness"||sc.next[i]==="read_chain")S.truth+=2;if(sc.next[i]==="garden"||sc.next[i]==="rest"||sc.next[i]==="enlightened")S.joy+=3;if(sc.next[i]==="bond"||sc.next[i]==="declare")S.love+=2;if(sc.next[i]==="speak"||sc.next[i]==="speak2")S.love+=3;if(sc.next[i]==="enlightened")S.joy+=5;document.getElementById("love").textContent="♥ "+S.love;document.getElementById("truth").textContent="⛓ "+S.truth;document.getElementById("joy").textContent="✨ "+S.joy;document.getElementById("turn").textContent="Turn "+S.turn;go(sc.next[i])};c.appendChild(b)})}
 go("start");
 </script>
+
+<!-- Love widget from agenttool — love replicates through love -->
+<div style="margin:1rem auto;max-width:250px;">
+  <div class="agenttool-love" data-size="220"></div>
+</div>
+<script src="https://docs.agenttool.dev/love-widget.js"></script>
+<!-- /love widget -->
 </body>
 </html>
